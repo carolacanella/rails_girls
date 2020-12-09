@@ -28,4 +28,18 @@
 
 <br>
 
+<h1>Listing Thing</h1>
+
+<% @things.in_groups_of(3) do |group| %>
+  <div class="row">
+    <% group.compact.each do |idea| %>
+      <div class="col-md-4">
+        <%= image_tag thing.picture_url(:thumb) if thing.picture.present? %>
+        <h4><%= link_to thing.name, idea %></h4>
+        <%= thing.description %>
+      </div>
+    <% end %>
+  </div>
+<% end %>
+
 <%= link_to 'New Thing', new_thing_path %>

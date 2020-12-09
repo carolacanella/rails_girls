@@ -72,3 +72,8 @@ class ThingsController < ApplicationController
       params.require(:thing).permit(:name, :description, :picture)
     end
 end
+
+    def comments
+      @comments = @thing.comments.all
+      @comment = @thing.comments.build
+    end 
